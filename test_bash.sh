@@ -1,7 +1,3 @@
-# TODO:
-# test in interactive mode and non.
-# test with job control enabled and disabled.
-
 signal=$1
 
 is_caught=false
@@ -24,7 +20,6 @@ handler () {
     if [ "$signal" == "15" ]; then
         trap term_handler SIGTERM; 
     fi
-    #trap term_handler SIGTERM; 
     echo "signal received"
 }
 trap handler $signal

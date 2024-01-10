@@ -65,7 +65,13 @@ def test_signal(command_args, sig):
 
 
 def main():
-    for tup in get_test_configs(["bash", "test_bash.sh"], signal.valid_signals()):
+    if sys.argv[1] == "bash":
+        command_args = ["bash", "test_bash.sh"]
+    elif sys.argv[1] == "fish":
+        command_args = ["fish", "test_fish.fish"]
+    else:
+        sys.stderr.write("expecting 'bash' or 'fish'.  Found: {}".format(sys.argv[1]))
+    for tup in get_test_configs(command_args, signal.valid_signals()):
         test_signal(*tup)
         
 
