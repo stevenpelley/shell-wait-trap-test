@@ -3,7 +3,7 @@ demonstration and test bash and fish trap and wait.  I believe fish is broken an
 
 This repository may be opened and run within a devcontainer.  See .devcontainer for configuration
 
-run test via `python3 test_driver.py [bash | fish]`.  The output will display one signal per line by signal number and a either a success or error message.  The printed result is intended to be used to diff bash against fish and each against some stored reference output as a regression test.
+run test via `python3 test_driver.py [bash | fish | zsh]`.  The output will display one signal per line by signal number and a either a success or error message.  The printed result is intended to be used to diff bash against fish and each against some stored reference output as a regression test.
 
 currently runs a bash test showing that signals 9 (kill) and 19 (stop) fail.  These signals cannot be caught so this is a correct result.
 
