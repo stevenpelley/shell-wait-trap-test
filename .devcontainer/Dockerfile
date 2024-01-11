@@ -5,5 +5,6 @@ RUN curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/
 RUN sudo apt update -y
 RUN sudo apt install fish -y
 RUN sudo apt install python3
+RUN sudo apt install zsh
 RUN apt-get clean
 

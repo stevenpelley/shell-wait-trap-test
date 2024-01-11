@@ -17,7 +17,7 @@ trap term_handler SIGTERM;
 handler () {
     is_caught=true
     # overwrite SIGTERM handler in case we are testing SIGTERM
-    if [ "$signal" == "15" ]; then
+    if [ "$signal" = "15" ]; then
         trap term_handler SIGTERM; 
     fi
     echo "signal received"
@@ -27,10 +27,13 @@ trap handler $signal
 
 echo "signal handler ready"
 
-if [ "$signal" == "17" ]; then
+if [ "$signal" = "17" ]; then
     # force a process to run to test and trigger SIGCHLD
     # bash (or linux?) doesn't let us send this from the outside
-    sleep 0
+    #
+    # note that in zsh this only succeeds if backgrounded.  I'm assuming my
+    # version of zsh has sleep as a builtin
+    sleep 0 &
 fi
 
 # need something to wait on
